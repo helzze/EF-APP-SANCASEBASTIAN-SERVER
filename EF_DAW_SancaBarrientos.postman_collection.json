@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "5c635003-7ed4-45f5-b1d4-8a863860dfab",
+		"name": "EF_DAW_SancaBarrientos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38701174"
+	},
+	"item": [
+		{
+			"name": "Generación Token De Acceso",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "secret",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "client",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "sebastian",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "$2a$12$51xSZNfAWfnq3Dgees8xBe5UIzVSBcriNxjLhu9VEPqdx2bYrbwli",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:9000/oauth2/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"oauth2",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Acceso a API privada",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiI5YTg4MGQ4Yi1jNjFhLTQ5ZDUtODkzNy1jYTgwYjQyNGU0YTMiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjbGllbnQiLCJhdWQiOiJjbGllbnQiLCJuYmYiOjE3Mjk1Njk4MTAsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6OTAwMCIsImV4cCI6MTcyOTU3MTYxMCwiaWF0IjoxNzI5NTY5ODEwLCJqdGkiOiIxYzZjY2ZiMS1hMzJlLTQyZmQtYWIzNy04NDQ5NjYyZGUyMTUifQ.UmEm0gagGVc-Y8YChlPH5_leMppy8jPWMvMrGd7fTqLkHZXM1eSDv6R2PNjbOW-nUKnMf4bxVoKdVxmjbCcEugAB55q-9k8ijzsv-rten3rlDYGRQZpTRrcwa0DbSbdAASmCG7vnC5ihHQxhul19qYM8wpWg1TZb6WstHOrCmKBaxFlb9zDimAnBavWiIUiS0DyPm0vay2pwAkohFWldPVsOQ0EXrW4wuyiXeL3d2eH184sNkVNcHldAq3f5xwO-ch5zCildfdyitVmy8LRrx7r8WEcQKcqt5WBbam0o0clh7EC5wezN9k5uyYrfPQiEkErOoUT4sHJf_9vxYyDcCg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/private",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"private"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Acceso a API publica",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/public",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"public"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
